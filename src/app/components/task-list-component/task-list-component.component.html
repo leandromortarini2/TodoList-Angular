@@ -1,0 +1,41 @@
+<div class="container-cards">
+  <mat-card
+    *ngFor="let task of tasks"
+    class="example-card"
+    [ngClass]="
+      task.status === 'in-progress'
+        ? 'in-progress'
+        : task.status === 'finished'
+        ? 'finished'
+        : ''
+    "
+  >
+    <mat-card-header>
+      <mat-card-subtitle>Task {{ task.id }}</mat-card-subtitle>
+      <mat-card-title>{{ task.title }}</mat-card-title>
+      <mat-card-subtitle>{{ task.type }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        {{ task.description }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        (click)="editState(task.id)"
+        [disabled]="task.status === 'finished'"
+        mat-raised-button
+        class="custom-button"
+        [ngClass]="
+          task.status === 'in-progress'
+            ? 'btn-in-progress'
+            : task.status === 'finished'
+            ? 'btn-finished'
+            : ''
+        "
+      >
+        {{ task.status }}
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

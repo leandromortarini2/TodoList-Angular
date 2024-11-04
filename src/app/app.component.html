@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>{{ title }}</h1>
+  <nav>
+    <ul>
+      <li>
+        <button
+          mat-flat-button
+          routerLink="/all-tasks"
+          routerLinkActive="active"
+        >
+          All Tasks
+        </button>
+      </li>
+      <li>
+        <button
+          mat-flat-button
+          routerLink="/add-tasks"
+          routerLinkActive="active"
+        >
+          Add Tasks
+        </button>
+      </li>
+    </ul>
+  </nav>
+  <router-outlet></router-outlet>
+</div>

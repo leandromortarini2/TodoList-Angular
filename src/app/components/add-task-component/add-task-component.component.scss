@@ -1,0 +1,60 @@
+/* Estilo para el contenedor del formulario */
+.container-form {
+  max-width: 400px; /* Limitar el ancho del formulario */
+  margin: 20px auto; /* Centrar el formulario horizontalmente */
+  padding: 20px; /* Agregar un poco de espacio interno */
+  border: 1px solid #ccc; /* Bordes alrededor del formulario */
+  border-radius: 8px; /* Bordes redondeados */
+  background-color: #f9f9f9; /* Color de fondo */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+}
+
+/* Estilos para el título del formulario */
+.container-form h2 {
+  text-align: center; /* Centrar el texto */
+  color: #053b50; /* Color del texto */
+}
+
+/* Estilo para los campos de formulario */
+mat-form-field {
+  width: 100%; /* Asegurarse de que ocupen todo el ancho disponible */
+  margin-bottom: 16px; /* Espacio entre los campos */
+}
+mat-form-field textarea {
+  width: 100%;
+  height: 150px;
+}
+pre {
+  color: white;
+}
+/* Estilos para el botón de confirmación */
+.swal-confirm-button {
+  background-color: #053b50 !important; /* Cambia el color de fondo */
+  color: #fff; /* Cambia el color del texto */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-right: 1rem;
+  cursor: pointer;
+  &:hover {
+    background-color: #053b50cd !important; /* Cambia el color de fondo al pasar el cursor */
+  }
+}
+
+/* Estilos para el botón de cancelación */
+.swal-cancel-button {
+  background-color: #7f0e05; /* Cambia el color de fondo */
+  color: #fff; /* Cambia el color del texto */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(
+      159,
+      15,
+      5,
+      0.804
+    ); /* Cambia el color de fondo al pasar el cursor */
+  }
+}
