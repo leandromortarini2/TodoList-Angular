@@ -30,3 +30,35 @@ body {
 .custom-button:hover {
   background-color: #045a6c !important; /* Cambiar el color del botón al pasar el mouse */
 }
+
+/* Estilos para el botón de confirmación */
+.swal-confirm-button {
+  background-color: #053b50 !important; /* Cambia el color de fondo */
+  color: #fff; /* Cambia el color del texto */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-right: 1rem;
+  cursor: pointer;
+  &:hover {
+    background-color: #053b50cd !important; /* Cambia el color de fondo al pasar el cursor */
+  }
+}
+
+/* Estilos para el botón de cancelación */
+.swal-cancel-button {
+  background-color: #7f0e05; /* Cambia el color de fondo */
+  color: #fff; /* Cambia el color del texto */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(
+      159,
+      15,
+      5,
+      0.804
+    ); /* Cambia el color de fondo al pasar el cursor */
+  }
+}

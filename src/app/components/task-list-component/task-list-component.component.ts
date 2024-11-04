@@ -26,6 +26,11 @@ export class TaskListComponentComponent {
       title: 'Are you sure?',
       showCancelButton: true,
       confirmButtonText: 'Yes',
+      customClass: {
+        confirmButton: 'swal-confirm-button', // Clase para el botón de confirmación
+        cancelButton: 'swal-cancel-button', // Clase para el botón de cancelación
+      },
+      buttonsStyling: false,
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
@@ -36,7 +41,13 @@ export class TaskListComponentComponent {
               : task.status === 'pending'
               ? 'in-progress'
               : 'pending';
-          Swal.fire('', '', 'success');
+          Swal.fire({
+            icon: 'success',
+            confirmButtonText: 'ok',
+            customClass: {
+              confirmButton: 'swal-confirm-button',
+            },
+          });
         }
       } else if (result.isDenied) {
         Swal.fire('Changes are not saved', '', 'info');

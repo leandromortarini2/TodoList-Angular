@@ -21,7 +21,12 @@
     <textarea matInput formControlName="description"></textarea>
   </mat-form-field>
   <!-- button -->
-  <button mat-raised-button class="custom-button" (click)="submit()">
+  <button
+    [disabled]="form().invalid"
+    mat-raised-button
+    class="custom-button"
+    (click)="submit()"
+  >
     Submit
   </button>
 </div>

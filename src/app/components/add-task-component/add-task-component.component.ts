@@ -6,7 +6,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { tasksArray } from '../../utils/taksArray';
 import { ITodo } from '../../interfaces/all.interfaces';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { CommonModule, JsonPipe } from '@angular/common';
 import Swal from 'sweetalert2';
 
@@ -34,9 +39,9 @@ export class AddTaskComponentComponent {
 
   form = signal<FormGroup>(
     new FormGroup({
-      title: new FormControl(''),
-      selector: new FormControl(''),
-      description: new FormControl(''),
+      title: new FormControl('', [Validators.required]),
+      selector: new FormControl('', [Validators.required]),
+      description: new FormControl('', [Validators.required]),
     })
   );
 
