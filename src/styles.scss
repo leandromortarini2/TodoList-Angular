@@ -16,13 +16,16 @@ $secondary-color: #053b50;
 
 html,
 body {
-  height: 100%;
+  height: 120vh;
+  overflow: auto;
 }
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   // background-color: whitesmoke !important;
-  background-image: url("./assets/about.png");
+  background-image: url("./assets/layered-waves-haikei.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 /* Estilo para el botón personalizado */

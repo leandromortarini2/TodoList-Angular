@@ -1,33 +1,31 @@
-$primary-color: #008080;
-$secondary-color: #053b50;
+$secondary-color: #3f51b5;
 
 .container-cards {
-  width: 70%;
+  width: 90%; /* Asegura que la cuadrícula tenga un ancho flexible */
   height: 100vh;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  padding: 1rem;
-  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr); /* Tres columnas */
+  grid-gap: 1rem; /* Espacio entre las tarjetas */
   margin: 0 auto;
-  margin-top: 3rem;
+  margin-top: 1rem;
+  padding: 1rem;
 }
 
 mat-card-header {
-  width: 100%;
-  // background: #000;
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 .example-card {
-  width: 300px;
-  height: 300px;
-  background-color: whitesmoke !important;
   display: flex;
-  border: 1px solid rgb(181, 181, 181);
   flex-direction: column;
   justify-content: space-evenly;
-  box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.354);
+  width: 100%;
+  background-color: whitesmoke !important;
+  height: 280px; /* Fija la altura de las tarjetas */
+  box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.177);
+  border: 1px solid rgb(181, 181, 181);
 }
 
 mat-card-actions {
@@ -35,17 +33,19 @@ mat-card-actions {
   justify-content: end;
   padding-right: 1rem;
 }
+
 mat-card-title {
-  color: #053b50;
+  color: $secondary-color;
   text-transform: capitalize;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
+
 mat-card-subtitle {
   font-size: 1rem;
 }
 
 h3 {
-  color: #053b50;
+  color: $secondary-color;
   font-size: 1rem;
   text-transform: uppercase;
 }
@@ -54,6 +54,8 @@ p {
   font-size: 0.9rem;
   text-transform: capitalize;
 }
+
+/* Estilo para el estado "in-progress" */
 .in-progress {
   border: 1px solid red !important;
 }
@@ -63,10 +65,31 @@ p {
   border: 1px solid green !important;
   background-color: rgb(229, 244, 229) !important;
   color: green !important;
-  & mat-card-title {
+
+  mat-card-title {
     color: green;
   }
+
   h3 {
     color: green;
+  }
+}
+
+/* Responsividad para pantallas más pequeñas */
+@media (max-width: 1024px) {
+  .container-cards {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Dos columnas en pantallas medianas */
+  }
+}
+
+@media (max-width: 768px) {
+  .container-cards {
+    grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+  }
+  .example-card {
+    height: auto; /* Ajusta la altura de la tarjeta en pantallas pequeñas */
   }
 }

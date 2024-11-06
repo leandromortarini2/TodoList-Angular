@@ -1,13 +1,23 @@
 <nav>
-  <h1>{{ title }}</h1>
   <ul>
     <li>
-      <button mat-raised-button routerLink="/" routerLinkActive="active">
+      <button
+        mat-raised-button
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <!-- Esto hace que el enlace solo sea activo cuando la ruta exacta coincide -->
         All Tasks
       </button>
     </li>
     <li>
-      <button mat-flat-button routerLink="/add-tasks" routerLinkActive="active">
+      <button
+        mat-flat-button
+        routerLink="/add-tasks"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         Add Tasks
       </button>
     </li>
