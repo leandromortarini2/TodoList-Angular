@@ -3,7 +3,7 @@ import { TaskListComponentComponent } from './components/task-list-component/tas
 import { AddTaskComponentComponent } from './components/add-task-component/add-task-component.component';
 
 export const routes: Routes = [
-  { path: 'all-tasks', component: TaskListComponentComponent }, // Esto es correcto
+  { path: '', component: TaskListComponentComponent }, // Esto es correcto
 
   {
     path: 'add-tasks',

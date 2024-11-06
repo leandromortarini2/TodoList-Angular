@@ -1,6 +1,6 @@
+import { ITodoData } from './../interfaces/all.interfaces';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ITodoData } from '../interfaces/all.interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -8,13 +8,11 @@ import { ITodoData } from '../interfaces/all.interfaces';
 export class CreateTaskService {
   private apiUrl = 'http://localhost:3000/create-task';
 
-  tak = [];
-
-  constructor(private http: HttpClient) {
-    this.tak = [];
-  }
+  constructor(private http: HttpClient) {}
 
   createTask(task: ITodoData) {
+    console.log('Task sent to backend:', task); // Verificación del contenido del objeto
+
     return this.http.post<ITodoData>(this.apiUrl, task);
   }
 }

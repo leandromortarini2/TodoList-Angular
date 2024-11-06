@@ -1,38 +1,72 @@
+$primary-color: #008080;
+$secondary-color: #053b50;
+
 .container-cards {
-  width: 100%;
+  width: 70%;
   height: 100vh;
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   padding: 1rem;
   gap: 1rem;
+  margin: 0 auto;
   margin-top: 3rem;
+}
+
+mat-card-header {
+  width: 100%;
+  // background: #000;
+  display: flex;
+  justify-content: space-between;
 }
 
 .example-card {
   width: 300px;
   height: 300px;
+  background-color: whitesmoke !important;
   display: flex;
+  border: 1px solid rgb(181, 181, 181);
   flex-direction: column;
   justify-content: space-evenly;
+  box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.354);
 }
 
+mat-card-actions {
+  display: flex;
+  justify-content: end;
+  padding-right: 1rem;
+}
+mat-card-title {
+  color: #053b50;
+  text-transform: capitalize;
+  font-size: 2rem;
+}
+mat-card-subtitle {
+  font-size: 1rem;
+}
+
+h3 {
+  color: #053b50;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+p {
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
 .in-progress {
-  border: 2px solid rgb(250, 211, 112) !important;
+  border: 1px solid red !important;
 }
 
+/* Estilo para el estado "finished" */
 .finished {
-  border: 2px solid rgb(50, 81, 30) !important;
-}
-.btn-in-progress {
-  background-color: rgb(242, 217, 154) !important;
-  color: #242424 !important;
-}
-
-.btn-finished {
-  background-color: rgb(50, 81, 30) !important;
-}
-
-.custom-button {
-  width: 100%;
+  border: 1px solid green !important;
+  background-color: rgb(229, 244, 229) !important;
+  color: green !important;
+  & mat-card-title {
+    color: green;
+  }
+  h3 {
+    color: green;
+  }
 }

@@ -1,11 +1,13 @@
 export interface ITodo {
   id: number;
   title: string;
-  type: ITodoType;
+  type: string;
   description: string;
-  status: ITodoStatus;
+  status: string;
 }
 
-export type ITodoStatus = 'pending' | 'in-progress' | 'finished';
-
-export type ITodoType = 'view' | 'component' | 'service';
+export interface ITodoData {
+  title: string;
+  type: string;
+  description: string;
+}

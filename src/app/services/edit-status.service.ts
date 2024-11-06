@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class EditStatusService {
   private apiUrl = 'http://localhost:3000/edit-task/';
 
+  message: string = '';
   constructor(private http: HttpClient) {}
 
   EditStatusService(id: number) {

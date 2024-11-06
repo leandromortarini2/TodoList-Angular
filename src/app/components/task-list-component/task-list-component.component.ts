@@ -1,57 +1,47 @@
-import { Component } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { tasksArray } from '../../utils/taksArray';
 import { ITodo } from '../../interfaces/all.interfaces';
 import { CommonModule } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
-import Swal from 'sweetalert2';
+import { GetAllTasksService } from '../../services/get-all-tasks.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ButtonEditComponent } from '../button-edit/button-edit.component';
 @Component({
   selector: 'app-task-list-component',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, CommonModule, MatDialogModule],
+  imports: [
+    MatCardModule,
+    MatButtonModule,
+    CommonModule,
+    MatDialogModule,
+    HttpClientModule,
+    ButtonEditComponent,
+  ],
   templateUrl: './task-list-component.component.html',
   styleUrl: './task-list-component.component.scss',
 })
 export class TaskListComponentComponent {
-  tasks: ITodo[] = tasksArray;
+  tasks: ITodo[] = [];
 
-  constructor(dialog: MatDialogModule) {}
+  constructor(public allTasks: GetAllTasksService) {}
 
-  editState(id: number) {
-    // Recorremos cada tarea en el array
-    const task = this.tasks.find((t) => t.id === id);
+  ngOnInit(): void {
+    this.getAllTasks(); // Llamar a la función al iniciar el componente
+  }
 
-    Swal.fire({
-      title: 'Are you sure?',
-      showCancelButton: true,
-      confirmButtonText: 'Yes',
-      customClass: {
-        confirmButton: 'swal-confirm-button', // Clase para el botón de confirmación
-        cancelButton: 'swal-cancel-button', // Clase para el botón de cancelación
-      },
-      buttonsStyling: false,
-    }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
-      if (result.isConfirmed) {
-        if (task) {
-          task.status =
-            task.status === 'in-progress'
-              ? 'finished'
-              : task.status === 'pending'
-              ? 'in-progress'
-              : 'pending';
-          Swal.fire({
-            icon: 'success',
-            confirmButtonText: 'ok',
-            customClass: {
-              confirmButton: 'swal-confirm-button',
-            },
-          });
-        }
-      } else if (result.isDenied) {
-        Swal.fire('Changes are not saved', '', 'info');
-      }
+  getAllTasks() {
+    this.allTasks.getAllTasks().subscribe((data) => {
+      this.tasks = data;
     });
+  }
+
+  // Método para manejar el cambio de estado
+  onStatusChange(newStatus: string, taskId: number) {
+    const task = this.tasks.find((t) => t.id === taskId);
+    if (task) {
+      task.status = newStatus; // Actualizar el estado de la tarea
+      console.log(`Estado de la tarea ${taskId} actualizado a ${newStatus}`);
+    }
   }
 }

@@ -1,0 +1,30 @@
+$primary-color: #008080;
+$secondary-color: #053b50;
+
+.in-progress {
+  background-color: red !important;
+  &:hover {
+    background-color: rgba(255, 0, 0, 0.757);
+  }
+}
+
+/* Estilo para el estado "finished" */
+.finished {
+  background-color: green !important;
+  &:hover {
+    background-color: rgba(0, 128, 0, 0.689);
+  }
+}
+
+/* Estilo para el botón custom */
+.custom-button {
+  width: 8rem;
+  background-color: $primary-color;
+  color: white;
+  text-transform: capitalize !important;
+
+  /* Efecto hover */
+  &:hover {
+    background-color: $secondary-color;
+  }
+}

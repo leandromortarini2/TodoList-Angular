@@ -14,6 +14,7 @@ import {
 } from '@angular/forms';
 import { CommonModule, JsonPipe } from '@angular/common';
 import Swal from 'sweetalert2';
+import { CreateTaskService } from '../../services/create-task.service';
 
 @Component({
   selector: 'app-add-task-component',
@@ -35,12 +36,14 @@ import Swal from 'sweetalert2';
 export class AddTaskComponentComponent {
   tasks: ITodo[] = tasksArray;
 
+  constructor(public createNewTask: CreateTaskService) {}
+
   //? Signal  contiene el formulario reactivo de Angular, almacenado en una señal (`signal`) para manejar el estado reactivo
 
   form = signal<FormGroup>(
     new FormGroup({
       title: new FormControl('', [Validators.required]),
-      selector: new FormControl('', [Validators.required]),
+      type: new FormControl('', [Validators.required]),
       description: new FormControl('', [Validators.required]),
     })
   );
@@ -48,6 +51,8 @@ export class AddTaskComponentComponent {
   //? Método que se ejecuta al enviar el formulario
 
   submit() {
+    console.log('Formulario enviado:', this.form().value); // Para verificar todos los valores del formulario
+
     Swal.fire({
       icon: 'question',
       title: 'Create new task?',
@@ -60,19 +65,20 @@ export class AddTaskComponentComponent {
       buttonsStyling: false,
     }).then((result) => {
       if (result.isConfirmed) {
-        this.tasks.push({
-          id: this.tasks.length + 1,
-          title: this.form().value.title,
-          type: this.form().value.selector,
-          description: this.form().value.description,
-          status: 'pending',
-        });
+        this.createNewTask.createTask(this.form().value).subscribe();
+
         Swal.fire({
           icon: 'success',
           confirmButtonText: 'ok',
           customClass: {
             confirmButton: 'swal-confirm-button',
           },
+        });
+
+        this.form().setValue({
+          title: '',
+          type: '',
+          description: '',
         });
       }
     });
