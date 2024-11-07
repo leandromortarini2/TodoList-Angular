@@ -7,6 +7,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { GetAllTasksService } from '../../services/get-all-tasks.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ButtonEditComponent } from '../button-edit/button-edit.component';
+import { ButtonDeleteComponent } from '../button-delete/button-delete.component';
 @Component({
   selector: 'app-task-list-component',
   standalone: true,
@@ -17,6 +18,8 @@ import { ButtonEditComponent } from '../button-edit/button-edit.component';
     MatDialogModule,
     HttpClientModule,
     ButtonEditComponent,
+    ButtonDeleteComponent,
+    ButtonDeleteComponent,
   ],
   templateUrl: './task-list-component.component.html',
   styleUrl: './task-list-component.component.scss',
@@ -43,5 +46,10 @@ export class TaskListComponentComponent {
       task.status = newStatus; // Actualizar el estado de la tarea
       console.log(`Estado de la tarea ${taskId} actualizado a ${newStatus}`);
     }
+  }
+
+  onTaskDeleted(taskId: number): void {
+    console.log('Tarea eliminada:', taskId);
+    this.tasks = this.tasks.filter((task) => task.id !== taskId);
   }
 }

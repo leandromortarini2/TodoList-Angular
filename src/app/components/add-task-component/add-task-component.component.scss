@@ -26,3 +26,9 @@ mat-form-field textarea {
 button:disabled {
   background-color: gray !important;
 }
+
+@media (max-width: 500px) {
+  .container-form {
+    margin: 1rem;
+  }
+}

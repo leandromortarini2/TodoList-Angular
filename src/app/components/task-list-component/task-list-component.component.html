@@ -19,6 +19,11 @@
       </p>
     </mat-card-content>
     <mat-card-actions>
+      <app-button-delete
+        [id]="task.id"
+        (taskDeleted)="onTaskDeleted(task.id)"
+      ></app-button-delete>
+
       <app-button-edit
         [id]="task.id"
         [status]="task.status"

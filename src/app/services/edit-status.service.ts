@@ -11,6 +11,6 @@ export class EditStatusService {
   constructor(private http: HttpClient) {}
 
   EditStatusService(id: number) {
-    return this.http.get<EditStatusService>(`${this.apiUrl}${id}`);
+    return this.http.put<EditStatusService>(`${this.apiUrl}${id}`, {});
   }
 }

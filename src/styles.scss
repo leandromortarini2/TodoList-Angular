@@ -26,16 +26,17 @@ body {
   background-image: url("./assets/layered-waves-haikei.svg");
   background-size: cover;
   background-repeat: no-repeat;
+  text-transform: capitalize !important;
 }
 
 /* Estilo para el botón personalizado */
 .custom-button {
-  background-color: #053b50 !important; /* Color de fondo del botón */
+  background-color: #3f51b5 !important; /* Color de fondo del botón */
   color: white !important; /* Color del texto del botón */
   width: 100%; /* Hacer que el botón ocupe todo el ancho */
 }
 .custom-button:hover {
-  background-color: #045a6c !important; /* Cambiar el color del botón al pasar el mouse */
+  background-color: #3f51b5d4 !important; /* Cambiar el color del botón al pasar el mouse */
 }
 
 /* Estilos para el botón de confirmación */

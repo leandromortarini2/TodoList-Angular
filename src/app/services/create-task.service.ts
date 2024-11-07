@@ -11,7 +11,7 @@ export class CreateTaskService {
   constructor(private http: HttpClient) {}
 
   createTask(task: ITodoData) {
-    console.log('Task sent to backend:', task); // Verificación del contenido del objeto
+    console.log('Task sent to backend:', task);
 
     return this.http.post<ITodoData>(this.apiUrl, task);
   }

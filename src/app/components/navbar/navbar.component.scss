@@ -48,11 +48,13 @@ nav {
 @media (max-width: 768px) {
   nav ul {
     width: 70%;
+    margin: 0 auto;
   }
 }
 
 @media (max-width: 500px) {
   nav ul {
     width: 90%;
+    margin: 0 auto;
   }
 }

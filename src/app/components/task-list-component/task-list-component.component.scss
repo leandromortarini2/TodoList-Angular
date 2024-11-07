@@ -21,16 +21,15 @@ mat-card-header {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  width: 100%;
-  background-color: whitesmoke !important;
+  width: 250px;
   height: 280px; /* Fija la altura de las tarjetas */
   box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.177);
-  border: 1px solid rgb(181, 181, 181);
+  border: 1px solid $secondary-color;
 }
 
 mat-card-actions {
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
   padding-right: 1rem;
 }
 
@@ -63,7 +62,6 @@ p {
 /* Estilo para el estado "finished" */
 .finished {
   border: 1px solid green !important;
-  background-color: rgb(229, 244, 229) !important;
   color: green !important;
 
   mat-card-title {
@@ -79,16 +77,31 @@ p {
 @media (max-width: 1024px) {
   .container-cards {
     grid-template-columns: repeat(
-      2,
+      3,
       1fr
     ); /* Dos columnas en pantallas medianas */
   }
 }
 
-@media (max-width: 768px) {
+/* Responsividad para pantallas medianas, 2 columnas */
+@media screen and (min-width: 400px) and (max-width: 769px) {
   .container-cards {
-    grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Dos columnas en pantallas medianas */
   }
+
+  .example-card {
+    height: auto; /* Ajusta la altura de la tarjeta en pantallas medianas */
+  }
+}
+
+@media screen and (min-width: 200px) and (max-width: 399px) {
+  .container-cards {
+    grid-template-columns: 1fr;
+  }
+
   .example-card {
     height: auto; /* Ajusta la altura de la tarjeta en pantallas pequeñas */
   }
