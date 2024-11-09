@@ -1,3 +1,16 @@
+<!-- MODAL -->
+<!-- MODAL -->
+<!-- task-list-component.component.html -->
+<app-modal
+  [showModal]="showModal"
+  (close)="onCloseModal()"
+  (taskUpdatedModal)="onTaskUpdated($event)"
+>
+</app-modal>
+
+<!-- MODAL -->
+<!-- MODAL -->
+
 <div class="container-cards">
   <mat-card
     *ngFor="let task of tasks"
@@ -7,6 +20,15 @@
       finished: task.status === 'finished'
     }"
   >
+    <!-- BOTON EDIT  -->
+    <!-- BOTON EDIT  -->
+    <app-edit-task
+      (openModal)="onOpenModal()"
+      [taskId]="task.id"
+    ></app-edit-task>
+
+    <!-- BOTON EDIT  -->
+    <!-- BOTON EDIT  -->
     <mat-card-header>
       <mat-card-subtitle>Task {{ task.id }}</mat-card-subtitle>
       <mat-card-title>{{ task.title }}</mat-card-title>

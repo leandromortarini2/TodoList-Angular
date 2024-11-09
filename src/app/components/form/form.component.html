@@ -1,0 +1,38 @@
+<form class="container-form" [formGroup]="form">
+  <mat-form-field>
+    <!-- input -->
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="title" [value]="task.title" />
+  </mat-form-field>
+  <!-- select -->
+
+  <mat-form-field>
+    <mat-label>Select type</mat-label>
+    <mat-select formControlName="type" [value]="task.type">
+      <mat-option value="feat">feat</mat-option>
+      <mat-option value="fix">fix</mat-option>
+      <mat-option value="docs">docs</mat-option>
+      <mat-option value="refactor">refactor</mat-option>
+      <mat-option value="style">style</mat-option>
+      <mat-option value="test">test</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <!-- textarea -->
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <textarea
+      matInput
+      formControlName="description"
+      [value]="task.description"
+    ></textarea>
+  </mat-form-field>
+  <!-- button -->
+  <button
+    [disabled]="form.invalid"
+    mat-raised-button
+    class="custom-button"
+    (click)="submit()"
+  >
+    Submit
+  </button>
+</form>

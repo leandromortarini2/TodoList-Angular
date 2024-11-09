@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button'; // Importa el módulo de botones
 import { NavbarComponent } from './components/navbar/navbar.component';
 
@@ -14,8 +14,9 @@ export class AppComponent {
   title = 'TodoList';
 
   isActive = false;
+  showModal: boolean = false;
 
   toggleActive() {
-    this.isActive = !this.isActive; // Alterna el estado
+    this.isActive = !this.isActive;
   }
 }

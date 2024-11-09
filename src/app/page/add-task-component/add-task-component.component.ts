@@ -4,8 +4,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
-import { tasksArray } from '../../utils/taksArray';
-import { ITodo } from '../../interfaces/all.interfaces';
+
 import {
   FormControl,
   FormGroup,
@@ -15,6 +14,7 @@ import {
 import { CommonModule, JsonPipe } from '@angular/common';
 import Swal from 'sweetalert2';
 import { CreateTaskService } from '../../services/create-task.service';
+import { ITodo } from '../../interfaces/all.interfaces';
 
 @Component({
   selector: 'app-add-task-component',
@@ -34,7 +34,7 @@ import { CreateTaskService } from '../../services/create-task.service';
   styleUrls: ['./add-task-component.component.scss'],
 })
 export class AddTaskComponentComponent {
-  tasks: ITodo[] = tasksArray;
+  tasks: ITodo[] = [];
 
   constructor(public createNewTask: CreateTaskService) {}
 
@@ -51,7 +51,7 @@ export class AddTaskComponentComponent {
   //? Método que se ejecuta al enviar el formulario
 
   submit() {
-    console.log('Formulario enviado:', this.form().value); // Para verificar todos los valores del formulario
+    console.log('Formulario enviado:', this.form().value);
 
     Swal.fire({
       icon: 'question',
@@ -59,8 +59,8 @@ export class AddTaskComponentComponent {
       showCancelButton: true,
       confirmButtonText: 'Yes',
       customClass: {
-        confirmButton: 'swal-confirm-button', // Clase para el botón de confirmación
-        cancelButton: 'swal-cancel-button', // Clase para el botón de cancelación
+        confirmButton: 'swal-confirm-button',
+        cancelButton: 'swal-cancel-button',
       },
       buttonsStyling: false,
     }).then((result) => {

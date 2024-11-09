@@ -1,0 +1,10 @@
+<div *ngIf="showModal" class="modal">
+  <div>
+    <div class="box-button-close">
+      <button (click)="closeModal()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <app-form (taskUpdated)="onTaskUpdated($event)"></app-form>
+  </div>
+</div>
