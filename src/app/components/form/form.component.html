@@ -9,12 +9,10 @@
   <mat-form-field>
     <mat-label>Select type</mat-label>
     <mat-select formControlName="type" [value]="task.type">
-      <mat-option value="feat">feat</mat-option>
-      <mat-option value="fix">fix</mat-option>
-      <mat-option value="docs">docs</mat-option>
-      <mat-option value="refactor">refactor</mat-option>
-      <mat-option value="style">style</mat-option>
-      <mat-option value="test">test</mat-option>
+      <mat-option value="urgent">Urgent</mat-option>
+      <mat-option value="high priority">High Priority</mat-option>
+      <mat-option value="medium priority">Medium Priority</mat-option>
+      <mat-option value="low priority">Low Priority</mat-option>
     </mat-select>
   </mat-form-field>
   <!-- textarea -->

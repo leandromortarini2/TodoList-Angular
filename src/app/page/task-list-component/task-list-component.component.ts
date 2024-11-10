@@ -40,9 +40,13 @@ export class TaskListComponentComponent {
   @Output() openModal = new EventEmitter();
   showModal = false;
 
-  trackByTaskId(index: number, task: ITodo): number {
-    return task.id;
-  }
+  // Objeto para asignar valor numérico a cada prioridad
+  priorityOrder = {
+    Urgent: 1,
+    'High Priority': 2,
+    'Medium Priority': 3,
+    'Low Priority': 4,
+  };
 
   constructor(
     public allTasks: GetAllTasksService,

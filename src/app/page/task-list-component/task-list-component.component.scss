@@ -1,52 +1,62 @@
 $secondary-color: #3f51b5;
 
 .container-cards {
-  width: 90%; /* Asegura que la cuadrícula tenga un ancho flexible */
-  height: 100vh;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Tres columnas */
-  grid-gap: 1rem; /* Espacio entre las tarjetas */
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
-  margin-top: 1rem;
-  padding: 1rem;
 }
 
 mat-card-header {
   display: flex;
   justify-content: space-between;
-  width: 100%;
-}
+  min-width: 20%;
+  max-width: 20%;
+  background-color: #3f51b5;
+  & h3 {
+    color: white !important;
 
+    color: $secondary-color;
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+}
+mat-card-content {
+  min-width: 40%;
+  max-width: 40%;
+}
 .example-card {
+  padding: 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-evenly;
-  width: 250px;
-  height: 280px; /* Fija la altura de las tarjetas */
+  align-items: center;
+  width: 100%;
+  height: 8rem; /* Fija la altura de las tarjetas */
   box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.177);
   border: 1px solid $secondary-color;
+  margin: 0.5rem;
 }
 
 mat-card-actions {
+  min-width: 40%;
+  max-width: 40%;
   display: flex;
-  justify-content: space-between;
-  padding-right: 1rem;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 mat-card-title {
   color: $secondary-color;
   text-transform: capitalize;
   font-size: 1.5rem;
+  color: white !important;
 }
 
 mat-card-subtitle {
   font-size: 1rem;
-}
-
-h3 {
-  color: $secondary-color;
-  font-size: 1rem;
-  text-transform: uppercase;
 }
 
 p {
@@ -55,22 +65,19 @@ p {
 }
 
 /* Estilo para el estado "in-progress" */
-.in-progress {
-  border: 1px solid red !important;
+.medium-priority {
+  border: 2px solid orange !important;
 }
 
 /* Estilo para el estado "finished" */
+.urgent {
+  border: 2px solid red !important;
+  color: red !important;
+}
+
 .finished {
-  border: 1px solid green !important;
+  border: 2px solid green !important;
   color: green !important;
-
-  mat-card-title {
-    color: green;
-  }
-
-  h3 {
-    color: green;
-  }
 }
 
 /* Responsividad para pantallas más pequeñas */

@@ -13,34 +13,36 @@
 
 <div class="container-cards">
   <mat-card
-    *ngFor="let task of tasks; trackBy: trackByTaskId"
+    *ngFor="let task of tasks"
     class="example-card"
     [ngClass]="{
-      'in-progress': task.status === 'in-progress',
-      finished: task.status === 'finished'
+      'medium-priority': task.type === 'medium priority',
+      finished: task.status === 'finished',
+      urgent: task.type === 'urgent'
     }"
   >
     <!-- BOTON EDIT  -->
     <!-- BOTON EDIT  -->
-    <app-edit-task
-      (openModal)="onOpenModal()"
-      [taskId]="task.id"
-    ></app-edit-task>
-
-    <!-- BOTON EDIT  -->
-    <!-- BOTON EDIT  -->
     <mat-card-header>
-      <mat-card-subtitle>Task {{ task.id }}</mat-card-subtitle>
-      <mat-card-title>{{ task.title }}</mat-card-title>
+      <!-- <mat-card-subtitle>Task {{ task.id }}</mat-card-subtitle> -->
+      <mat-card-title
+        >{{ task.title }}
+        <h3>{{ task.type }}</h3>
+      </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <h3>{{ task.type }}</h3>
-
       <p>
         {{ task.description }}
       </p>
     </mat-card-content>
     <mat-card-actions>
+      <!-- BOTON EDIT  -->
+      <!-- BOTON EDIT  -->
+      <app-edit-task
+        (openModal)="onOpenModal()"
+        [taskId]="task.id"
+      ></app-edit-task>
+
       <app-button-delete
         [id]="task.id"
         (taskDeleted)="onTaskDeleted(task.id)"
