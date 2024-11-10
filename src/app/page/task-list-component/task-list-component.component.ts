@@ -1,7 +1,13 @@
 import { EditTaskComponent } from './../../components/edit-task/edit-task.component';
 import { ButtonDeleteComponent } from './../../components/button-delete/button-delete.component';
 import { ButtonEditComponent } from './../../components/button-edit/button-edit.component';
-import { Component, Input, EventEmitter, Output } from '@angular/core';
+import {
+  Component,
+  Input,
+  EventEmitter,
+  Output,
+  ChangeDetectorRef,
+} from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { ITodo } from '../../interfaces/all.interfaces';
@@ -34,7 +40,14 @@ export class TaskListComponentComponent {
   @Output() openModal = new EventEmitter();
   showModal = false;
 
-  constructor(public allTasks: GetAllTasksService) {}
+  trackByTaskId(index: number, task: ITodo): number {
+    return task.id;
+  }
+
+  constructor(
+    public allTasks: GetAllTasksService,
+    public cdRef: ChangeDetectorRef
+  ) {}
 
   // MODAL
   // MODAL
@@ -75,10 +88,14 @@ export class TaskListComponentComponent {
 
   onTaskUpdated(taskUpdatedModal: any) {
     console.log(taskUpdatedModal);
+    this.getAllTasks();
 
-    // Actualizamos la tarea en el arreglo local
-    this.tasks = this.tasks.map((task) =>
-      task.id === taskUpdatedModal.id ? { ...task, ...taskUpdatedModal } : task
-    );
+    this.tasks = this.tasks
+      .map((task) =>
+        task.id === taskUpdatedModal.id
+          ? { ...task, ...taskUpdatedModal }
+          : task
+      )
+      .slice(); // Usar `slice()` para crear una copia y forzar el cambio
   }
 }

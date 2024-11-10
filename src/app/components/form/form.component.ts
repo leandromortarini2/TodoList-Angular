@@ -16,7 +16,6 @@ import Swal from 'sweetalert2';
 import { DataTaskService } from '../../services/data-task.service';
 import { CommonModule } from '@angular/common';
 import { EditTaskService } from '../../services/edit-task.service';
-import { log } from 'console';
 
 @Component({
   selector: 'app-form',

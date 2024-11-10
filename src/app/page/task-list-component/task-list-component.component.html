@@ -13,7 +13,7 @@
 
 <div class="container-cards">
   <mat-card
-    *ngFor="let task of tasks"
+    *ngFor="let task of tasks; trackBy: trackByTaskId"
     class="example-card"
     [ngClass]="{
       'in-progress': task.status === 'in-progress',

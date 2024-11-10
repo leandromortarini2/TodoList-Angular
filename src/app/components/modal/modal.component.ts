@@ -19,6 +19,7 @@ export class ModalComponent {
   // Método para cerrar el modal
   closeModal() {
     this.close.emit();
+    window.location.reload(); // Refresca la página
   }
 
   onTaskUpdated(taskData: any) {
