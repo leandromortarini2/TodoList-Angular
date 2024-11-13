@@ -11,7 +11,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { CommonModule, JsonPipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
 import { CreateTaskService } from '../../services/create-task.service';
 import { ITodo } from '../../interfaces/all.interfaces';
@@ -26,8 +26,6 @@ import { ITodo } from '../../interfaces/all.interfaces';
     MatSelectModule,
     MatButtonModule,
     ReactiveFormsModule,
-    JsonPipe,
-    RouterLink,
     CommonModule,
   ],
   templateUrl: './add-task-component.component.html',
@@ -51,8 +49,6 @@ export class AddTaskComponentComponent {
   //? Método que se ejecuta al enviar el formulario
 
   submit() {
-    console.log('Formulario enviado:', this.form().value);
-
     Swal.fire({
       icon: 'question',
       title: 'Create new task?',

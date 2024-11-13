@@ -81,17 +81,14 @@ export class TaskListComponentComponent {
     const task = this.tasks.find((t) => t.id === taskId);
     if (task) {
       task.status = newStatus; // Actualizar el estado de la tarea
-      console.log(`Estado de la tarea ${taskId} actualizado a ${newStatus}`);
     }
   }
 
   onTaskDeleted(taskId: number): void {
-    console.log('Tarea eliminada:', taskId);
     this.tasks = this.tasks.filter((task) => task.id !== taskId);
   }
 
   onTaskUpdated(taskUpdatedModal: any) {
-    console.log(taskUpdatedModal);
     this.getAllTasks();
 
     this.tasks = this.tasks

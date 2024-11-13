@@ -24,7 +24,6 @@ export class ButtonEditComponent {
           if (data && data.message) {
             this.status = data.message;
             this.statusChange.emit(this.status); // Emitimos el nuevo estado
-            console.log('Task status updated', this.status);
           } else {
             console.error('Error: No message in response');
           }

@@ -32,7 +32,6 @@ export class ButtonDeleteComponent {
       if (result.isConfirmed) {
         this.deleteTask.deleteTask(this.id).subscribe(
           (response) => {
-            console.log('Tarea eliminada con éxito:', response);
             this.taskDeleted.emit('Tarea eliminada');
 
             Swal.fire({
