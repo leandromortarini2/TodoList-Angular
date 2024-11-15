@@ -41,7 +41,7 @@ body {
 
 /* Estilos para el botón de confirmación */
 .swal-confirm-button {
-  background-color: #053b50 !important; /* Cambia el color de fondo */
+  background-color: #3f51b5 !important; /* Cambia el color de fondo */
   color: #fff; /* Cambia el color del texto */
   border: none;
   border-radius: 5px;
@@ -49,7 +49,7 @@ body {
   margin-right: 1rem;
   cursor: pointer;
   &:hover {
-    background-color: #053b50cd !important; /* Cambia el color de fondo al pasar el cursor */
+    background-color: #3f51b5 !important; /* Cambia el color de fondo al pasar el cursor */
   }
 }
 
